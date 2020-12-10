@@ -8,6 +8,7 @@
   <body>
     <div id="app">
       <h1>Vue2: {{msg}} {{name}}: {{count}}</h1>
+      <Home></Home>
       <button @click="handAddCount">add</button>
     </div>
     <script src="./js/vue2.js"></script>
@@ -27,8 +28,18 @@
         },
       };
 
+      const Home = {
+        mixins: [mixin],
+        template: `<div> 
+             <h1>components: {{msg}} {{name}}: {{count}}</h1>
+           </div>`,
+      };
+
       new Vue({
         mixins: [mixin],
+        components: {
+          Home,
+        },
         el: "#app",
       });
     </script>
