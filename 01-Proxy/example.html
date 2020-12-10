@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy</title>
+  </head>
+  <body>
+    <script>
+      const target = { x: 0, y: 0 };
+
+      const hander = {
+        set: (obj, prop, value) => {
+          obj[prop] = value;
+        },
+        get: (obj, prop) => {
+          if (!obj[prop]) throw "物件沒有這個屬性";
+          return obj[prop];
+        },
+      };
+
+      const p = new Proxy(target, hander);
+
+      console.log(p["abc"]);
+    </script>
+  </body>
+</html>

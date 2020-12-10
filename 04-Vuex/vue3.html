@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue3</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue3: {{msg}}: {{count}}</h1>
+      <button @click="handAddCount">add</button>
+    </div>
+    <script src="./js/vue3.js"></script>
+    <script src="https://unpkg.com/vuex@next"></script>
+    <script>
+      const { createStore } = Vuex;
+      const { ref, computed } = Vue;
+
+      const store = createStore({
+        state() {
+          return {
+            count: 0,
+          };
+        },
+        mutations: {
+          increment(state) {
+            state.count++;
+          },
+        },
+      });
+
+      const App = {
+        setup() {
+          const msg = ref("Hello World");
+
+          const count = computed(() => store.state.count);
+
+          const handAddCount = () => {
+            store.commit("increment");
+          };
+
+          return {
+            msg,
+            count,
+            handAddCount,
+          };
+        },
+      };
+
+      Vue.createApp(App).use(store).mount("#app");
+    </script>
+  </body>
+</html>

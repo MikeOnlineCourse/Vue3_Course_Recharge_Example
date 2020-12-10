@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue2</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue2: {{msg}}</h1>
+      <p>
+        <router-link to="/">Go to Home</router-link> |
+        <router-link to="/About">Go to About</router-link>
+      </p>
+      <router-view></router-view>
+    </div>
+    <script src="./js/vue2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.4.9/vue-router.js"></script>
+    <script>
+      const Home = { template: "<div><h2>Home</h2></div>" };
+      const About = { template: "<div><h2>About</h2></div>" };
+
+      const router = new VueRouter({
+        mode: "hash",
+        routes: [
+          { path: "/", component: Home },
+          { path: "/About", component: About },
+        ],
+      });
+
+      new Vue({
+        router,
+        el: "#app",
+        data: {
+          msg: "Hello World",
+        },
+      });
+    </script>
+  </body>
+</html>

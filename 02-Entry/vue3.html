@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue3</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue3: {{msg}}</h1>
+    </div>
+    <script src="./js/vue3.js"></script>
+    <script>
+      const { ref } = Vue;
+      const App = {
+        setup() {
+          const msg = ref("Hello World");
+          return {
+            msg,
+          };
+        },
+      };
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
