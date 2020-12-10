@@ -8,6 +8,7 @@
   <body>
     <div id="app">
       <h1>Vue2: {{msg}}</h1>
+      <button @click="handClick">log</button>
     </div>
     <script src="./js/vue2.js"></script>
     <script>
@@ -15,6 +16,11 @@
         el: "#app",
         data: {
           msg: "Hello World",
+        },
+        methods: {
+          handClick() {
+            console.log("click:", this.msg);
+          },
         },
       });
     </script>

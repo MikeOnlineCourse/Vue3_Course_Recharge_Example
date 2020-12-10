@@ -8,6 +8,7 @@
   <body>
     <div id="app">
       <h1>Vue3: {{msg}}</h1>
+      <button @click="handClick">log</button>
     </div>
     <script src="./js/vue3.js"></script>
     <script>
@@ -15,8 +16,14 @@
       const App = {
         setup() {
           const msg = ref("Hello World");
+
+          const handClick = () => {
+            console.log("click:", msg.value);
+          };
+
           return {
             msg,
+            handClick,
           };
         },
       };
