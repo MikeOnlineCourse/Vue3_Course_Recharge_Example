@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue3</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue3: {{msg}}</h1>
+      <button @click="handClick">log</button>
+    </div>
+    <script src="./js/vue3.js"></script>
+    <script>
+      const App = {
+        data() {
+          return {
+            msg: "Hello Mike",
+          };
+        },
+        methods: {
+          handClick() {
+            console.log(this.msg);
+          },
+        },
+      };
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
