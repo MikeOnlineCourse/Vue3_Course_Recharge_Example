@@ -1,34 +1,19 @@
 <script>
-import { ref } from "vue";
 export default {
   setup() {
-    const showAlert = ref(false);
-    return {
-      showAlert,
-    };
+    return {};
   },
 };
 </script>
 <template>
-  <div id="DeepSelectors">
-    <w-app id="w-app-box" block="block">
-      <w-button
-        @click="showAlert = !showAlert"
-        color="primary"
-        outline="outline"
-        >Hide alert</w-button
-      >
-      <w-transition-expand y="y">
-        <w-alert v-if="showAlert" color="success">
-          The alert is now visible.
-        </w-alert>
-      </w-transition-expand>
-    </w-app>
+  <div id="deep">
+    <el-button>Default</el-button>
+    <el-button type="primary">Primary</el-button>
+    <el-button type="success">Success</el-button>
+    <el-button type="info">Info</el-button>
+    <el-button type="warning">Warning</el-button>
+    <el-button type="danger">Danger</el-button>
   </div>
 </template>
 
-<style scoped>
-#DeepSelectors .w-app {
-  min-height: 100px;
-}
-</style>
+<style scoped></style>

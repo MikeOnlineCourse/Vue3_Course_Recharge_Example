@@ -1,12 +1,20 @@
 <script>
 import axios from "axios";
+import { onMounted, ref } from "vue";
 export default {
-  async setup() {
-    const photo = await axios.get(
-      "https://vue-lessons-api.herokuapp.com/photo/list"
-    );
+  setup() {
+    const photo = ref({});
 
-    return { photo: photo.data };
+    onMounted(() => {
+      axios
+        .get("https://vue-lessons-api.herokuapp.com/photo/list")
+        .then((res) => {
+          photo.value = res.data;
+          console.log(photo);
+        });
+    });
+
+    return { photo: photo };
   },
 };
 </script>
